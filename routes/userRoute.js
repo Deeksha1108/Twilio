@@ -16,7 +16,7 @@ router.post('/generate-otp', async (req, res) => {
 
   const otp = otpGenerator.generate(6, { digits: true, upperCaseAlphabets: false, specialChars: false });
   const otpExpiration = new Date();
-  otpExpiration.setMinutes(otpExpiration.getMinutes() + 10); // OTP valid for 10 minutes
+  otpExpiration.setMinutes(otpExpiration.getMinutes() + 10); 
 
   const existingOtp = await OTP.findOne({ phoneNumber });
   if (existingOtp) {
